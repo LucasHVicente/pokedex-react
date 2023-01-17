@@ -10,7 +10,7 @@ import { usePokedex } from "../../hooks/usePokedex";
 
 export const PokemonDetailsNavigation = ({ pokemon }: PokemonDetailsProps) => {
   const navigate = useNavigate();
-  const { numberOfEntries } = usePokedex();
+  const { lastPokedexEntry } = usePokedex();
   function handleNextPokemon(num: number) {
     navigate(`/pokemon/${num + 1}`);
   }
@@ -31,7 +31,7 @@ export const PokemonDetailsNavigation = ({ pokemon }: PokemonDetailsProps) => {
       <NavigateButton
         aria-label="next pokemon"
         onClick={() => handleNextPokemon(parseInt(pokemon.num))}
-        disabled={parseInt(pokemon?.num) >= numberOfEntries}
+        disabled={parseInt(pokemon?.num) >= lastPokedexEntry}
       >
         <IoIosArrowForward size={20} />
       </NavigateButton>

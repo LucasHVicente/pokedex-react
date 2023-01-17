@@ -10,6 +10,7 @@ export const PokedexProvider = ({ children }: PokedexProviderProps) => {
   const [pokedex, setPokedex] = useState<PokemonProps[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [lastPokedexEntry, setLastPokedexEntry] = useState(0);
 
   async function fetchPokedex() {
     try {
@@ -17,7 +18,9 @@ export const PokedexProvider = ({ children }: PokedexProviderProps) => {
       const res = await api.get(
         "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json"
       );
-      setPokedex(res.data.pokemon);
+      const { pokemon } = res.data;
+      setPokedex(pokemon);
+      setLastPokedexEntry(parseInt(pokemon[pokemon[pokemon.length - 1]].num));
       setLoading(false);
     } catch (err) {
       setError("Unable to get Pokédex data");
@@ -47,7 +50,7 @@ export const PokedexProvider = ({ children }: PokedexProviderProps) => {
     <PokedexContext.Provider
       value={{
         pokedex,
-        numberOfEntries: pokedex.length,
+        lastPokedexEntry,
         findPokemonByNumber,
         getEvolutions,
       }}
