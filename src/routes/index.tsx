@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { PokemonDetails } from "../pages/PokemonDetails";
 import { Providers } from "../providers";
 
 export const Router = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Providers>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -14,6 +14,6 @@ export const Router = () => {
           <Route path="*" element={<Home />} />
         </Routes>
       </Providers>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
