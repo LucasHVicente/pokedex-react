@@ -20,7 +20,7 @@ export const PokedexProvider = ({ children }: PokedexProviderProps) => {
       );
       const { pokemon } = res.data;
       setPokedex(pokemon);
-      setLastPokedexEntry(parseInt(pokemon[pokemon[pokemon.length - 1]].num));
+      setLastPokedexEntry(parseInt(pokemon[pokemon.length - 1].num));
       setLoading(false);
     } catch (err) {
       setError("Unable to get Pokédex data");
