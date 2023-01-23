@@ -33,7 +33,7 @@ export const Home = () => {
         <div>
           <SearchInput
             placeholder="Search for Pokémon"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
           <SearchButton aria-label="search" onClick={filterPokemon}>
             <FiSearch size={20} />
