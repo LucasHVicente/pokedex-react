@@ -15,7 +15,7 @@ test("should display error message on api error", async () => {
   const errorMessage = await screen.findByRole("heading", {
     name: /Unable to get Pokédex data/i,
   });
-  expect(errorMessage).toBeInTheDocument();
+  expect(errorMessage).not.toBeInTheDocument();
 });
 
 test("should toggle theme", async () => {
