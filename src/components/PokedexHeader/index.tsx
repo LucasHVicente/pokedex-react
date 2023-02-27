@@ -13,7 +13,7 @@ export const PokedexHeader = ({ theme, setTheme }: PokedexHeaderProps) => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   }
   return (
-    <PokedexHeaderContainer data-testId="header">
+    <PokedexHeaderContainer data-testid="header">
       <Link to="/">
         <PokedexTitle>Pokédex</PokedexTitle>
       </Link>
