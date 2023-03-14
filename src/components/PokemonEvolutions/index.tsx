@@ -24,7 +24,7 @@ export const PokemonEvolutions = ({ pokemon }: PokemonEvolutionsProps) => {
       );
     }
     setEvolutions(evo);
-  }, []);
+  }, [pokemon]);
 
   return (
     <EvolutionsContainer>
